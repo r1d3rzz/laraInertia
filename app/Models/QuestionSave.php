@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class QuestionSave extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['question_id','user_id'];
 }
