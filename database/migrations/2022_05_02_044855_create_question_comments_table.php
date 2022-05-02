@@ -12,14 +12,13 @@ return new class extends Migration {
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('question_comments', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->string('image');
-            $table->rememberToken();
+            $table->unsignedBigInteger('question_id');
+            $table->unsignedBigInteger('user_id');
+            $table->text('comment');
+            $table->foreign('question_id')->references('id')->on('questions')->onDelete('Cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('Cascade');
             $table->timestamps();
         });
     }
@@ -31,6 +30,6 @@ return new class extends Migration {
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('question_comments');
     }
 };
