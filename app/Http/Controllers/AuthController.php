@@ -16,4 +16,14 @@ class AuthController extends Controller
     {
         return Inertia::render('Auth/Register');
     }
+
+    public function postRegister(Request $request)
+    {
+        $request->validate([
+           "name" => ['required','min:3'],
+           "email" => ['email','unique:users,email'],
+           "password" => ['required','min:6'],
+           "image" => ['image','mimes:png,jpg.jepg'],
+       ]);
+    }
 }
