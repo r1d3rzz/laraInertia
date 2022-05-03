@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use Inertia\Inertia;
 
 class AuthController extends Controller
@@ -17,13 +19,19 @@ class AuthController extends Controller
         return Inertia::render('Auth/Register');
     }
 
-    public function postRegister(Request $request)
+    public function postRegister()
     {
-        $request->validate([
-           "name" => ['required','min:3'],
-           "email" => ['email','unique:users,email'],
-           "password" => ['required','min:6'],
-           "image" => ['image','mimes:png,jpg.jepg'],
-       ]);
+        $fromData = request()->validate([
+            "name" => ['required'],
+            "email" => ['email',Rule::unique('users', 'email')],
+            "password" => ['required'],
+            "image" => ['image','mimes:png,jpg,jpeg'],
+        ]);
+
+        $fromData['image'] = request()->file('image')->store('profileImage');
+
+        User::create($fromData);
+
+        return redirect("/");
     }
 }

@@ -1,6 +1,6 @@
 <template>
   <div class="register container mt-5">
-    <div class="col-md-4 offset-4">
+    <div class="col-md-6 mx-auto">
       <div class="card shadow-lg">
         <div class="card-header">Register User</div>
         <div class="card-body">
@@ -56,13 +56,26 @@
                   errors.name ? 'border border-danger' : '',
                 ]"
                 id="image"
-                @input="form.avatar = $event.target.files[0]"
+                @input="form.image = $event.target.files[0]"
               />
-              <small class="text-danger">{{ errors.avatar }}</small>
+              <small class="text-danger">{{ errors.image }}</small>
             </div>
 
             <div class="d-flex justify-content-end">
-              <button class="btn btn-sm btn-primary">Register</button>
+              <button
+                class="btn btn-sm btn-primary d-flex align-items-center"
+                :disabled="isLoading"
+              >
+                <div
+                  v-if="isLoading"
+                  class="spinner-border spinner-grow-sm me-2"
+                  role="status"
+                >
+                  <span class="visually-hidden">Loading...</span>
+                </div>
+                <div v-if="!isLoading">Register</div>
+                <div v-if="isLoading">wait</div>
+              </button>
             </div>
           </form>
         </div>
@@ -73,23 +86,26 @@
 
 <script>
 import { useForm } from "@inertiajs/inertia-vue3";
+import { ref } from "@vue/reactivity";
 
 export default {
   name: "Register",
   props: ["errors"],
   setup() {
+    let isLoading = ref(false);
     const form = useForm({
       name: null,
       email: null,
       password: null,
-      avatar: null,
+      image: null,
     });
 
     let register = () => {
-      form.post("/register");
+      isLoading.value = true;
+      form.post("/register", (isLoading.value = false));
     };
 
-    return { form, register };
+    return { form, register, isLoading };
   },
 };
 </script>
