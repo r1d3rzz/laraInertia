@@ -37,6 +37,22 @@ class AuthController extends Controller
         return redirect("/");
     }
 
+    public function postLogin()
+    {
+        $fromData = request()->validate([
+            "email" => ['email','required',Rule::exists('users', 'email')],
+            "password" => ['required']
+        ]);
+
+        if (!auth()->attempt($fromData)) {
+            return back()->withErrors([
+                'password' => 'User Creadential Wrong'
+            ]);
+        }
+
+        return redirect('/');
+    }
+
     public function logout()
     {
         auth()->logout();

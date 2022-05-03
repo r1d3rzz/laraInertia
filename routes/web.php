@@ -17,7 +17,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [PageController::class,'home']);
 
-Route::get('/login', [AuthController::class,'login'])->middleware('guest');
+Route::get('/login', [AuthController::class,'login'])->middleware('guest')->name('login');
+Route::post('/login', [AuthController::class,'postLogin'])->middleware('guest');
 Route::get('/register', [AuthController::class,'register'])->middleware('guest');
 Route::post('/register', [AuthController::class,'postRegister'])->middleware('guest');
-Route::get('/logout', [AuthController::class,'logout']);
+Route::get('/logout', [AuthController::class,'logout'])->middleware('auth');

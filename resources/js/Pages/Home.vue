@@ -1,13 +1,14 @@
 <template>
   <div class="home">
-    <h1>Home</h1>
-    <br />
+    <Link href="/logout">Logout</Link>
   </div>
 </template>
 
 <script>
+import { Link } from "@inertiajs/inertia-vue3";
 export default {
   name: "Home",
+  components: { Link },
 };
 </script>
 
