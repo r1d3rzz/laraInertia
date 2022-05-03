@@ -30,8 +30,16 @@ class AuthController extends Controller
 
         $fromData['image'] = request()->file('image')->store('profileImage');
 
-        User::create($fromData);
+        $user = User::create($fromData);
 
+        auth()->login($user);
+
+        return redirect("/");
+    }
+
+    public function logout()
+    {
+        auth()->logout();
         return redirect("/");
     }
 }
