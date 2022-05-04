@@ -14,7 +14,7 @@
         <i class="fas fa-bars"></i>
       </button>
       <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-        <a class="navbar-brand" href="#">Disscussion</a>
+        <a class="navbar-brand" href="#">Discussion</a>
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="#">Home</a>
@@ -128,21 +128,36 @@
               suscipit consequatur inventore magni nihil ab vel! Veniam esse
               obcaecati, ea doloremque.
             </p>
-            <div class="row d-flex align-items-center">
-              <div class="col-md-8 p-2 d-flex">
-                <div class="reactionBtn me-5">
-                  <span class="me-2">like</span>
-                  <span class="me-2">comment</span>
-                  <span class="me-2">star</span>
+            <div class="row">
+              <div
+                class="
+                  col-md
+                  p-2
+                  d-flex
+                  justify-content-between
+                  align-items-center
+                "
+              >
+                <div>
+                  <span class="me-3">
+                    <span class="me-2"
+                      ><i class="far fa-heart text-danger"></i> 10
+                    </span>
+                    <span class="me-2"
+                      ><i class="far fa-comment text-primary"></i> 5
+                    </span>
+                    <span class="me-2"
+                      ><i class="far fa-star text-warning"></i> 1
+                    </span>
+                  </span>
+
+                  <span class="d-block d-lg-inline">
+                    <span class="badge badge-white bg-dark me-2">Android</span>
+                    <span class="badge badge-white bg-dark me-2">Ios</span>
+                    <span class="badge badge-white bg-dark me-2">Window</span>
+                    <span class="badge badge-white bg-dark me-2">Mac</span>
+                  </span>
                 </div>
-                <div class="tag ms-4">
-                  <span class="badge badge-white bg-dark me-2">Android</span>
-                  <span class="badge badge-white bg-dark me-2">Ios</span>
-                  <span class="badge badge-white bg-dark me-2">Window</span>
-                  <span class="badge badge-white bg-dark me-2">Mac</span>
-                </div>
-              </div>
-              <div class="col-md-4 d-flex justify-content-end">
                 <div>
                   <button class="btn btn-dark btn-sm">View</button>
                 </div>
@@ -180,21 +195,36 @@
               suscipit consequatur inventore magni nihil ab vel! Veniam esse
               obcaecati, ea doloremque.
             </p>
-            <div class="row d-flex align-items-center">
-              <div class="col-md-8 p-2 d-flex">
-                <div class="reactionBtn me-5">
-                  <span class="me-2">like</span>
-                  <span class="me-2">comment</span>
-                  <span class="me-2">star</span>
+            <div class="row">
+              <div
+                class="
+                  col-md
+                  p-2
+                  d-flex
+                  justify-content-between
+                  align-items-center
+                "
+              >
+                <div>
+                  <span class="me-3">
+                    <span class="me-2"
+                      ><i class="far fa-heart text-danger"></i> 10
+                    </span>
+                    <span class="me-2"
+                      ><i class="far fa-comment text-primary"></i> 5
+                    </span>
+                    <span class="me-2"
+                      ><i class="far fa-star text-warning"></i> 1
+                    </span>
+                  </span>
+
+                  <span class="d-block d-lg-inline">
+                    <span class="badge badge-white bg-dark me-2">Android</span>
+                    <span class="badge badge-white bg-dark me-2">Ios</span>
+                    <span class="badge badge-white bg-dark me-2">Window</span>
+                    <span class="badge badge-white bg-dark me-2">Mac</span>
+                  </span>
                 </div>
-                <div class="tag ms-4">
-                  <span class="badge badge-white bg-dark me-2">Android</span>
-                  <span class="badge badge-white bg-dark me-2">Ios</span>
-                  <span class="badge badge-white bg-dark me-2">Window</span>
-                  <span class="badge badge-white bg-dark me-2">Mac</span>
-                </div>
-              </div>
-              <div class="col-md-4 d-flex justify-content-end">
                 <div>
                   <button class="btn btn-dark btn-sm">View</button>
                 </div>
@@ -232,21 +262,36 @@
               suscipit consequatur inventore magni nihil ab vel! Veniam esse
               obcaecati, ea doloremque.
             </p>
-            <div class="row d-flex align-items-center">
-              <div class="col-md-8 p-2 d-flex">
-                <div class="reactionBtn me-5">
-                  <span class="me-2">like</span>
-                  <span class="me-2">comment</span>
-                  <span class="me-2">star</span>
+            <div class="row">
+              <div
+                class="
+                  col-md
+                  p-2
+                  d-flex
+                  justify-content-between
+                  align-items-center
+                "
+              >
+                <div>
+                  <span class="me-3">
+                    <span class="me-2"
+                      ><i class="far fa-heart text-danger"></i> 10
+                    </span>
+                    <span class="me-2"
+                      ><i class="far fa-comment text-primary"></i> 5
+                    </span>
+                    <span class="me-2"
+                      ><i class="far fa-star text-warning"></i> 1
+                    </span>
+                  </span>
+
+                  <span class="d-block d-lg-inline">
+                    <span class="badge badge-white bg-dark me-2">Android</span>
+                    <span class="badge badge-white bg-dark me-2">Ios</span>
+                    <span class="badge badge-white bg-dark me-2">Window</span>
+                    <span class="badge badge-white bg-dark me-2">Mac</span>
+                  </span>
                 </div>
-                <div class="tag ms-4">
-                  <span class="badge badge-white bg-dark me-2">Android</span>
-                  <span class="badge badge-white bg-dark me-2">Ios</span>
-                  <span class="badge badge-white bg-dark me-2">Window</span>
-                  <span class="badge badge-white bg-dark me-2">Mac</span>
-                </div>
-              </div>
-              <div class="col-md-4 d-flex justify-content-end">
                 <div>
                   <button class="btn btn-dark btn-sm">View</button>
                 </div>
