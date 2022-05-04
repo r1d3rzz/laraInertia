@@ -58,4 +58,9 @@ class AuthController extends Controller
         auth()->logout();
         return redirect("/");
     }
+
+    public function profileEdit()
+    {
+        return Inertia::render('Auth/EditProfile');
+    }
 }

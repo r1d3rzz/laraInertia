@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\QuestionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,3 +23,5 @@ Route::post('/login', [AuthController::class,'postLogin'])->middleware('guest');
 Route::get('/register', [AuthController::class,'register'])->middleware('guest');
 Route::post('/register', [AuthController::class,'postRegister'])->middleware('guest');
 Route::get('/logout', [AuthController::class,'logout'])->middleware('auth');
+Route::get('/profile/edit', [AuthController::class,'profileEdit'])->middleware('auth');
+Route::get('/question/detail', [QuestionController::class,'show']);
