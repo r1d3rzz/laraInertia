@@ -1,6 +1,12 @@
 <template>
   <div class="home">
     <Master>
+      <!--user login alert-->
+      <div class="alert alert-warning text-center" v-if="success">
+        {{ success }}
+      </div>
+      <!--end user login alert-->
+
       <div v-for="item in 5" :key="item">
         <AllQuestion />
       </div>
@@ -14,6 +20,7 @@ import Master from "./Layout/Master";
 import { Link } from "@inertiajs/inertia-vue3";
 
 export default {
+  props: ["success"],
   name: "Home",
   components: {
     AllQuestion,

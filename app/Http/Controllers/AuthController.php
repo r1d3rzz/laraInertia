@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
 use Inertia\Inertia;
 
@@ -34,7 +35,7 @@ class AuthController extends Controller
 
         auth()->login($user);
 
-        return redirect("/");
+        return redirect("/")->with('success', 'Hello '.Auth::user()->name." Welcome");
     }
 
     public function postLogin()
@@ -50,13 +51,13 @@ class AuthController extends Controller
             ]);
         }
 
-        return redirect('/');
+        return redirect('/')->with('success', 'Welcome Back '.Auth::user()->name);
     }
 
     public function logout()
     {
         auth()->logout();
-        return redirect("/");
+        return redirect("/")->with('success', 'GoodBye');
     }
 
     public function profileEdit()

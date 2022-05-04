@@ -14,7 +14,7 @@
           >
             <div>
               <span class="badge badge-white bg-danger me-2">Need fixed!</span>
-              <span>What is HTML</span>
+              <span class="d-block d-md-inline">What is HTML</span>
             </div>
             <div>
               <span class="badge badge-white bg-warning me-2">fixed</span>
