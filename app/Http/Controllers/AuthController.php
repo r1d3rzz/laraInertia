@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rule;
 use Inertia\Inertia;
 
@@ -25,7 +27,7 @@ class AuthController extends Controller
         $fromData = request()->validate([
             "name" => ['required'],
             "email" => ['email',Rule::unique('users', 'email')],
-            "password" => ['required'],
+            "password" => ['required','min:6'],
             "image" => ['image','mimes:png,jpg,jpeg'],
         ]);
 
@@ -63,5 +65,22 @@ class AuthController extends Controller
     public function profileEdit()
     {
         return Inertia::render('Auth/EditProfile');
+    }
+
+    public function postProfileEdit(User $user)
+    {
+        $userImage = $user->image;
+
+        if (request('image') === $user->image) {
+            $user->image = null;
+        }
+
+        DB::table('users')->where('email', $user->email)->update([
+            'name' => request('name') ? request('name') : $user->name,
+            'password' => request('password') ? Hash::make(request('password')) : $user->password,
+            'image' => $user->image ? request()->file('image')->store('profileImage') : $userImage
+        ]);
+
+        return back()->with('success', 'Updated Successfully');
     }
 }

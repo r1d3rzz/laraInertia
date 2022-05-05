@@ -24,4 +24,5 @@ Route::get('/register', [AuthController::class,'register'])->middleware('guest')
 Route::post('/register', [AuthController::class,'postRegister'])->middleware('guest');
 Route::get('/logout', [AuthController::class,'logout'])->middleware('auth');
 Route::get('/profile/edit', [AuthController::class,'profileEdit'])->middleware('auth');
+Route::post('/profile/{user:email}/edit/', [AuthController::class,'postProfileEdit'])->middleware('auth');
 Route::get('/question/detail', [QuestionController::class,'show']);
