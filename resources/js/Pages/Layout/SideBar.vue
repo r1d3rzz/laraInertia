@@ -6,14 +6,12 @@
       <div class="card-header">All Tags</div>
       <div class="card-body">
         <ul class="list-group">
-          <li class="list-group-item">
-            <a href="#">What is Html</a>
-          </li>
-          <li class="list-group-item">
-            <a href="#">What is Css</a>
-          </li>
-          <li class="list-group-item">
-            <a href="#">What is Js</a>
+          <li
+            class="list-group-item"
+            v-for="tag in $page.props.tag"
+            :key="tag.id"
+          >
+            <Link href="#">{{ tag.name }}</Link>
           </li>
         </ul>
       </div>
@@ -22,8 +20,10 @@
 </template>
 
 <script>
+import { Link } from "@inertiajs/inertia-vue3";
 export default {
   name: "SideBar",
+  components: { Link },
 };
 </script>
 
