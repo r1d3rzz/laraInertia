@@ -21,8 +21,10 @@
           <div>
             <span class="me-3">
               <span class="me-2"
-                ><i class="far fa-heart text-danger"></i>
-                {{ question.like.length }}
+                ><i class="far fa-heart text-danger me-1"></i>
+                <span v-if="question.like.length">{{
+                  question.like.length
+                }}</span>
               </span>
               <span class="me-2"
                 ><i class="far fa-comment text-primary"></i>
