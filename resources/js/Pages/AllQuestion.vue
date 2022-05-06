@@ -3,7 +3,7 @@
     <div class="card-header bg-dark text-white d-flex justify-content-between">
       <div>
         <span class="badge badge-white bg-danger me-2">Need fixed!</span>
-        <span>What is HTML</span>
+        <span>{{ question.title }}</span>
       </div>
       <div>
         <span class="badge badge-white bg-warning me-2">fixed</span>
@@ -12,12 +12,7 @@
     </div>
     <div class="card-body">
       <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate
-        vitae ut aperiam cum aut officia animi nostrum, aliquam ipsum, labore,
-        fuga ea tenetur! Quaerat eligendi id commodi autem atque rem architecto
-        quibusdam ullam nulla deserunt fugit hic maxime eaque consectetur nam,
-        cumque non praesentium culpa suscipit consequatur inventore magni nihil
-        ab vel! Veniam esse obcaecati, ea doloremque.
+        {{ question.description }}
       </p>
       <div class="row">
         <div
@@ -26,21 +21,25 @@
           <div>
             <span class="me-3">
               <span class="me-2"
-                ><i class="far fa-heart text-danger"></i> 10
+                ><i class="far fa-heart text-danger"></i>
+                {{ question.like.length }}
               </span>
               <span class="me-2"
-                ><i class="far fa-comment text-primary"></i> 5
+                ><i class="far fa-comment text-primary"></i>
+                {{ question.comments.length }}
               </span>
               <span class="me-2"
-                ><i class="far fa-star text-warning"></i> 1
+                ><i class="far fa-star text-warning"></i>
               </span>
             </span>
 
             <span class="d-block d-lg-inline">
-              <span class="badge badge-white bg-dark me-2">Android</span>
-              <span class="badge badge-white bg-dark me-2">Ios</span>
-              <span class="badge badge-white bg-dark me-2">Window</span>
-              <span class="badge badge-white bg-dark me-2">Mac</span>
+              <span
+                class="badge badge-white bg-dark me-2"
+                v-for="tag in question.tags"
+                :key="tag"
+                >{{ tag.name }}</span
+              >
             </span>
           </div>
           <div>
@@ -57,6 +56,7 @@
 <script>
 import { Link } from "@inertiajs/inertia-vue3";
 export default {
+  props: ["question"],
   components: { Link },
 };
 </script>

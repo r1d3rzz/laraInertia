@@ -7,8 +7,8 @@
       </div>
       <!--end user login alert-->
 
-      <div v-for="item in 5" :key="item">
-        <AllQuestion />
+      <div v-for="question in questions" :key="question.id">
+        <AllQuestion :question="question" />
       </div>
     </Master>
   </div>
@@ -20,7 +20,7 @@ import Master from "./Layout/Master";
 import { Link } from "@inertiajs/inertia-vue3";
 
 export default {
-  props: ["success"],
+  props: ["success", "questions"],
   name: "Home",
   components: {
     AllQuestion,

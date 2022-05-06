@@ -93,7 +93,7 @@
 import { ref } from "@vue/reactivity";
 import Master from "../Layout/Master";
 import { usePage, useForm } from "@inertiajs/inertia-vue3";
-import { computed, onUpdated } from "@vue/runtime-core";
+import { computed } from "@vue/runtime-core";
 
 export default {
   props: ["errors", "success"],
@@ -111,8 +111,11 @@ export default {
     });
 
     let updateProfile = () => {
-      isLoading = true;
-      form.post("/profile/" + user.value.email + "/edit", (isLoading = false));
+      isLoading.value = true;
+      form.post(
+        "/profile/" + user.value.email + "/edit",
+        (isLoading.value = false)
+      );
     };
 
     return { form, user, updateProfile, isLoading };
