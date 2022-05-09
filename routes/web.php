@@ -28,3 +28,4 @@ Route::post('/profile/{user:email}/edit/', [AuthController::class,'postProfileEd
 //QuestionController
 Route::get('/question/detail', [QuestionController::class,'show']);
 Route::get('/', [QuestionController::class,'home']);
+Route::get('/question/like/{id}', [QuestionController::class,'like']);

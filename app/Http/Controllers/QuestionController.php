@@ -50,4 +50,13 @@ class QuestionController extends Controller
         $data['like_count'] = $like_count;
         return $data;
     }
+
+    public function like($id)
+    {
+        QuestionLike::create([
+            'question_id' => $id,
+            'user_id' => Auth::id()
+        ]);
+        return response()->json(['success'=>true]);
+    }
 }
