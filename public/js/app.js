@@ -21848,7 +21848,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* KEYED_FRAGMENT */
   ))])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Link, {
     "class": "btn btn-dark btn-sm",
-    href: "/question/detail"
+    href: _ctx.route('question.detail', $props.question.slug)
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [_hoisted_18];
@@ -21856,7 +21856,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
     /* STABLE */
 
-  })])])])])]);
+  }, 8
+  /* PROPS */
+  , ["href"])])])])])]);
 }
 
 /***/ }),
@@ -22781,7 +22783,11 @@ __webpack_require__.r(__webpack_exports__);
       render: function render() {
         return (0,vue__WEBPACK_IMPORTED_MODULE_0__.h)(App, props);
       }
-    }).use(plugin).mount(el);
+    }).use(plugin).mixin({
+      methods: {
+        route: window.route
+      }
+    }).mount(el);
   }
 });
 

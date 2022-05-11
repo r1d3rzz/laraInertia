@@ -72,7 +72,9 @@
             </span>
           </div>
           <div>
-            <Link class="btn btn-dark btn-sm" href="/question/detail"
+            <Link
+              class="btn btn-dark btn-sm"
+              :href="route('question.detail', question.slug)"
               >View</Link
             >
           </div>

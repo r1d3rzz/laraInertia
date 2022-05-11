@@ -26,6 +26,6 @@ Route::get('/profile/edit', [AuthController::class,'profileEdit'])->middleware('
 Route::post('/profile/{user:email}/edit/', [AuthController::class,'postProfileEdit'])->middleware('auth');
 
 //QuestionController
-Route::get('/question/detail', [QuestionController::class,'show']);
+Route::get('/question/detail/{slug}', [QuestionController::class,'show'])->name('question.detail');
 Route::get('/', [QuestionController::class,'home']);
 Route::get('/question/like/{id}', [QuestionController::class,'like']);
