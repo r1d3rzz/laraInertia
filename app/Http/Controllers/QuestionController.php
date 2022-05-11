@@ -7,16 +7,18 @@ use App\Models\QuestionLike;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
+use App\Trait\Question as QuestionTrait;
 
 class QuestionController extends Controller
 {
+    use QuestionTrait;
     public function home()
     {
         $questions = Question::with('like', 'comments', 'questionsave', 'tags')->get();
 
         foreach ($questions as $k=>$v) {
-            $questions[$k]->is_like = $this->likeDetail($v->id)['is_like'];
-            $questions[$k]->like_count = $this->likeDetail($v->id)['like_count'];
+            $questions[$k]->is_like = $this->getLikeDetail($v->id)['is_like'];
+            $questions[$k]->like_count = $this->getLikeDetail($v->id)['like_count'];
         }
 
         // return $questions; ( check api )
@@ -26,29 +28,13 @@ class QuestionController extends Controller
         ]);
     }
 
-    public function show()
+    public function show($slug)
     {
+        $question = Question::where('slug', $slug)->first();
+        $question->is_like = $this->getLikeDetail($question->id)['is_like'];
+        $question->like_count = $this->getLikeDetail($question->id)['like_count'];
+        dd($question);
         return Inertia::render('QuestionDetail');
-    }
-
-    public function likeDetail($question_id)//build helper function
-    {
-        //check
-        $q_like = QuestionLike::where('question_id', $question_id)
-                                ->where('user_id', Auth::id())
-                                ->first();
-
-        if ($q_like) {
-            $is_like = true;
-        } else {
-            $is_like = false;
-        }
-
-        //like count
-        $like_count = QuestionLike::where('question_id', $question_id)->count();
-        $data['is_like'] = $is_like;
-        $data['like_count'] = $like_count;
-        return $data;
     }
 
     public function like($id)
