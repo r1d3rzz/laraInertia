@@ -30,11 +30,12 @@ class QuestionController extends Controller
 
     public function show($slug)
     {
-        $question = Question::where('slug', $slug)->first();
+        $question = Question::where('slug', $slug)->with('comments.user', 'like', 'tags')->first();
         $question->is_like = $this->getLikeDetail($question->id)['is_like'];
         $question->like_count = $this->getLikeDetail($question->id)['like_count'];
-        dd($question);
-        return Inertia::render('QuestionDetail');
+        return Inertia::render('QuestionDetail', [
+            'question' => $question
+        ]);
     }
 
     public function like($id)
